@@ -17,26 +17,30 @@ public class Main {
             //u get 7 tries if u get it in here
             //you win otherwise you lose and asked to try again
             for(int tries =1; tries < 7; tries++){
+
                 System.out.println("Take a guess");
+                try{
+                    Scanner scanthing2 = new Scanner(System.in);
+                    int userguess = scanthing2.nextInt();
 
-                Scanner scanthing2 = new Scanner(System.in);
-                int userguess = scanthing2.nextInt();
+                    //guessing rand correctly in tries tries
+                    if(userguess == rand){
+                        System.out.println("Good job," + name + "! You guessed my number in " + tries + " guesses!");
+                        tries = 7;
 
-
-
-                //guessing rand correctly in tries tries
-                if(userguess == rand){
-                    System.out.println("Good job," + name + "! You guessed my number in " + tries + " guesses!");
-                    tries = 7;
-
-                } else{
-                    if(userguess > rand){
-                        System.out.println("your guess is too high.");
                     } else{
-                        System.out.println("Your guess is too low.");
-                    }
+                        if(userguess > rand){
+                            System.out.println("your guess is too high.");
+                        } else{
+                            System.out.println("Your guess is too low.");
+                        }
 
+                    }
+                }catch (InputMismatchException exception){
+                    System.out.println("not an int input, guess again");
+                    tries--;
                 }
+
             }
 
 
